@@ -1,0 +1,14 @@
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Debug\net9.0\Network.exe
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Debug\net9.0\Network.deps.json
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Debug\net9.0\Network.runtimeconfig.json
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Debug\net9.0\Network.dll
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Debug\net9.0\Network.pdb
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.AssemblyInfoInputs.cache
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.AssemblyInfo.cs
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.csproj.CoreCompileInputs.cache
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.dll
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\refint\Network.dll
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.pdb
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.genruntimeconfig.cache
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\ref\Network.dll
