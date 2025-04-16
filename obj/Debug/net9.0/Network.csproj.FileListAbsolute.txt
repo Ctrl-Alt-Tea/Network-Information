@@ -12,3 +12,4 @@ C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\refint\Netw
 C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.pdb
 C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.genruntimeconfig.cache
 C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\ref\Network.dll
+C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\obj\Debug\net9.0\Network.sourcelink.json
