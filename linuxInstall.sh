@@ -26,8 +26,9 @@ else
     exit 1
 fi
 
-
+# Copy the executable to the /usr/local/bin directory
+cp -r bin/Debug/net8.0/Network-Information /usr/local/bin/
 
 # Test Run the project
-echo "Test Running the project..."
-dotnet run
+#echo "Test Running the project..."
+#dotnet run
