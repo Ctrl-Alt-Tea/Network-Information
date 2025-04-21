@@ -1,2 +1,0 @@
-C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Release\net9.0\win-x64\publish\Network.pdb
-C:\Users\dylan\OneDrive\Desktop\cScriptTest\Network\bin\Release\net9.0\win-x64\publish\Network.exe
