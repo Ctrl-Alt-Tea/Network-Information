@@ -4,7 +4,11 @@
 // This code is a network interface enumerator that displays information about active network interfaces.
 // It filters out boring interfaces such as virtual, loopback, and tunnel adapters.
 
-// The code is designed to run on Windows and has been tested on a Windows 11 laptop and an OpenWrt router.
+// The code is designed to run on Windows and Linux but should work on a Mac too,
+// This code has been tested on a Windows 11 and a Ubuntu laptop via an OpenWrt router.
+
+// Installers for both Windows and Linux (Debian/Ubuntu) are available at:
+// https://github.com/Ctrl-Alt-Tea/Network-Information/releases
 
 // For further information you can refer to the official Microsoft documentation:
 // https://learn.microsoft.com/en-us/dotnet/api/system.net.networkinformation.networkinterface?view=net-9.0
@@ -38,7 +42,7 @@ class Program
                 }
             }
 
-            // Filtering logic to remove boring interfaces (Tested on Windows 11 laptop and an Openwrt router)
+            // Filtering logic to remove boring interfaces (Tested on Windows 11/Ubuntu laptop and an Openwrt router)
             if (hasIpAddress &&
                 (ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet ||
                  ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
