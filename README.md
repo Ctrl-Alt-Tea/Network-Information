@@ -12,12 +12,21 @@
 
 ### Supported Devices:
 - Windows (Tested on Windows 11)
-- Should work elsewhere such as Mac and Linux provided correct packages are installed (.Net and System.Net.NetworkInformation)
+- Linux (Tested on Debian and Ubuntu)
+- Should work on Mac too
 
 ### Usage Options:
 - Windows:
   - Download install file
   - (Optional) pin to task bar
+ 
+- Linux:
+  - Git clone this repo
+  - Ensure .Net SDK is installed
+  - Change into Project directory
+  - Run 'dotnet build' to compile
+  - cd into bin/Debug/net8.0
+  - ./Network to run application
  
 ### Support the project:
 <a href="https://www.buymeacoffee.com/dylanrose" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
