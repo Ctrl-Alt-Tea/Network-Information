@@ -3,6 +3,8 @@
 # This script installs the required packages for the project on a Linux system.
 # It has been tested on Ubuntu or Debian-based systems.
 
+cd
+
 # Update the package list
 sudo apt update -y
 
@@ -26,8 +28,8 @@ else
     exit 1
 fi
 
-# Copy the executable to the /usr/local/bin directory
-cp -r bin/Debug/net8.0/Network-Information /usr/local/bin/
+# Add alias to .bashrc
+echo "alias network='./home/$USER/Network-Information/bin/Debug/net8.0/Network # Your path to Network-Information'" >> ~/.bashrc
 
 # Test Run the project (For testing purposes)
 #echo "Test Running the project..."
