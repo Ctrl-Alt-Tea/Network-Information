@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EKJ3qIrCmzM=",
+  "dgSpecHash": "3x4Z5tRqhis=",
   "success": true,
   "projectFilePath": "C:\\Users\\dylan\\OneDrive\\Desktop\\cScriptTest\\Network\\Network.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\dylan\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.4\\microsoft.net.illink.tasks.9.0.4.nupkg.sha512",
-    "C:\\Users\\dylan\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.4\\microsoft.netcore.app.runtime.win-x64.9.0.4.nupkg.sha512",
-    "C:\\Users\\dylan\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.4.nupkg.sha512",
-    "C:\\Users\\dylan\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.4\\microsoft.aspnetcore.app.runtime.win-x64.9.0.4.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
