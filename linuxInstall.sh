@@ -29,6 +29,6 @@ fi
 # Copy the executable to the /usr/local/bin directory
 cp -r bin/Debug/net8.0/Network-Information /usr/local/bin/
 
-# Test Run the project
+# Test Run the project (For testing purposes)
 #echo "Test Running the project..."
 #dotnet run
