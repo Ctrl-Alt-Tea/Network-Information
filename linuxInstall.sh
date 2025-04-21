@@ -22,15 +22,21 @@ dotnet build
 
 # Check if the build was successful
 if [ $? -eq 0 ]; then
+    echo " "
     echo "Build successful!"
+    echo " "
 else
+    echo " "
     echo "Build failed. Please check the output for errors."
+    echo " "
     exit 1
 fi
 
 # Add alias to .bashrc
-echo "alias network='./home/$USER/Network-Information/bin/Debug/net8.0/Network # Your path to Network-Information'" >> ~/.bashrc
-
+echo "alias network='./Network-Information/bin/Debug/net8.0/Network'" >> ~/.bashrc
+echo "Updated .bashrc restart terminal ..."
+echo "After restarting the terminal, you can run the project using the command 'network'"
+echo " "
 # Test Run the project (For testing purposes)
 #echo "Test Running the project..."
 #dotnet run
