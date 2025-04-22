@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3x4Z5tRqhis=",
+  "dgSpecHash": "6iiX1sqQJeg=",
   "success": true,
   "projectFilePath": "C:\\Users\\dylan\\OneDrive\\Desktop\\cScriptTest\\Network\\Network.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\dylan\\.nuget\\packages\\restsharp\\112.1.0\\restsharp.112.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

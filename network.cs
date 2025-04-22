@@ -16,10 +16,11 @@
 
 using System;
 using System.Net.NetworkInformation;
+using RestSharp;
 
 class Program
 {
-    static void Main()
+    static async Task Main()
     {
         Console.WriteLine("Displaying only active interfaces:");
         Console.WriteLine();
@@ -42,16 +43,16 @@ class Program
                 }
             }
 
-            // Filtering logic to remove boring interfaces (Tested on Windows 11/Ubuntu laptop and an Openwrt router)
+            // Filtering logic to remove boring interfaces
             if (hasIpAddress &&
                 (ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet ||
                  ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
-                 ni.NetworkInterfaceType == NetworkInterfaceType.Ppp) && // Include Bluetooth (needs more testing and work)
+                 ni.NetworkInterfaceType == NetworkInterfaceType.Ppp) &&
                 ni.OperationalStatus == OperationalStatus.Up &&
-                !ni.Description.ToLower().Contains("virtual") && // Exclude virtual adapters
-                !ni.Description.ToLower().Contains("loopback") && // Exclude loopback adapters
-                !ni.Description.ToLower().Contains("tunnel") && // Exclude tunnel adapters
-                !ni.Name.ToLower().Contains("local area connection")) // Exclude specific names
+                !ni.Description.ToLower().Contains("virtual") &&
+                !ni.Description.ToLower().Contains("loopback") &&
+                !ni.Description.ToLower().Contains("tunnel") &&
+                !ni.Name.ToLower().Contains("local area connection"))
             {
                 Console.WriteLine($"Name: {ni.Name}");
                 Console.WriteLine($"Description: {ni.Description}");
@@ -61,15 +62,68 @@ class Program
                 foreach (UnicastIPAddressInformation ip in ipProperties.UnicastAddresses)
                 {
                     if (ip.Address.AddressFamily != System.Net.Sockets.AddressFamily.InterNetwork) continue; // Skip IPv6
-                    Console.WriteLine($"IP Address: {ip.Address}");
+                    Console.WriteLine($"Local IP Address: {ip.Address}");
+
+                    string ipAddress = ip.Address.ToString(); // Assign the IP address as a string
+                    string apiKey = "eae488345f1265"; // Replace with your IPinfo API key
+
+                    var client = new RestClient($"https://ipinfo.io/{ipAddress}/json?token={apiKey}");
+                    var request = new RestRequest();
+                    var response = await client.GetAsync(request);
                 }
             }
         }
+
+        // Fetch and display external IP information
+        string publicIpAddress = await GetPublicIpAddress();
+        if (!string.IsNullOrEmpty(publicIpAddress))
+        {
+            Console.WriteLine($"\nPublic IP Address: {publicIpAddress}");
+
+            string apiKey = Environment.GetEnvironmentVariable("IPINFO_API_KEY");
+            //string apiKey = "ENTER_API_KEY"; // Replace with your IPinfo API key
+            var client = new RestClient($"https://ipinfo.io/{publicIpAddress}/json?token={apiKey}");
+            var request = new RestRequest();
+            var response = await client.GetAsync(request);
+
+            if (response != null)
+            {
+                Console.WriteLine("Public IP Geolocation Data:");
+                Console.WriteLine(response.Content);
+            }
+            else
+            {
+                Console.WriteLine("Error retrieving geolocation data for public IP.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Failed to retrieve public IP address.");
+        }
+
         Console.WriteLine();
         Console.WriteLine("Network scrapper by @Ctrl-Alt-Tea");
 
         // Pause the program to prevent it from closing immediately
         Console.WriteLine("Press any key to exit...");
-        Console.ReadKey(); 
+        Console.ReadKey();
+    }
+
+    // Method to fetch the public IP address
+    static async Task<string> GetPublicIpAddress()
+    {
+        try
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // Use a public IP service
+                return await httpClient.GetStringAsync("https://api.ipify.org");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching public IP: {ex.Message}");
+            return null;
+        }
     }
 }
