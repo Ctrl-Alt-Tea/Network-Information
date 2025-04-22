@@ -102,7 +102,7 @@ class Program
         }
 
         Console.WriteLine();
-        Console.WriteLine("Network scrapper by @Ctrl-Alt-Tea");
+        Console.WriteLine("Network Information by Ctrl-Alt-Tea");
 
         // Pause the program to prevent it from closing immediately
         Console.WriteLine("Press any key to exit...");
