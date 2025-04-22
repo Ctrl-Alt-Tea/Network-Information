@@ -22,7 +22,9 @@ class Program
 {
     static async Task Main()
     {
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Displaying only active interfaces:");
+        Console.ResetColor();
         Console.WriteLine();
 
         // Get all network interfaces
@@ -54,22 +56,22 @@ class Program
                 !ni.Description.ToLower().Contains("tunnel") &&
                 !ni.Name.ToLower().Contains("local area connection"))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Name: {ni.Name}");
                 Console.WriteLine($"Description: {ni.Description}");
                 Console.WriteLine($"Status: {ni.OperationalStatus}");
                 Console.WriteLine($"Speed: {ni.Speed / 1_000_000} Mbps");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine($"MAC Address: {ni.GetPhysicalAddress()}");
+                Console.ResetColor();
+
                 foreach (UnicastIPAddressInformation ip in ipProperties.UnicastAddresses)
                 {
                     if (ip.Address.AddressFamily != System.Net.Sockets.AddressFamily.InterNetwork) continue; // Skip IPv6
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                     Console.WriteLine($"Local IP Address: {ip.Address}");
-
-                    string ipAddress = ip.Address.ToString(); // Assign the IP address as a string
-                    string apiKey = "eae488345f1265"; // Replace with your IPinfo API key
-
-                    var client = new RestClient($"https://ipinfo.io/{ipAddress}/json?token={apiKey}");
-                    var request = new RestRequest();
-                    var response = await client.GetAsync(request);
+                    Console.ResetColor();
                 }
             }
         }
@@ -78,31 +80,40 @@ class Program
         string publicIpAddress = await GetPublicIpAddress();
         if (!string.IsNullOrEmpty(publicIpAddress))
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"\nPublic IP Address: {publicIpAddress}");
+            Console.ResetColor();
 
             string apiKey = Environment.GetEnvironmentVariable("IPINFO_API_KEY");
-            //string apiKey = "ENTER_API_KEY"; // Replace with your IPinfo API key
             var client = new RestClient($"https://ipinfo.io/{publicIpAddress}/json?token={apiKey}");
             var request = new RestRequest();
             var response = await client.GetAsync(request);
 
             if (response != null)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Public IP Geolocation Data:");
                 Console.WriteLine(response.Content);
+                Console.ResetColor();
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error retrieving geolocation data for public IP.");
+                Console.ResetColor();
             }
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Failed to retrieve public IP address.");
+            Console.ResetColor();
         }
 
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine("Network Information by Ctrl-Alt-Tea");
+        Console.ResetColor();
 
         // Pause the program to prevent it from closing immediately
         Console.WriteLine("Press any key to exit...");
@@ -122,7 +133,9 @@ class Program
         }
         catch (Exception ex)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Error fetching public IP: {ex.Message}");
+            Console.ResetColor();
             return null;
         }
     }
